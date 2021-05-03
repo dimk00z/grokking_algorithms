@@ -14,7 +14,7 @@ def binary_search(ordered_list: List[int],
     high_value: int = len(ordered_list)-1
     while low_value <= high_value:
         step += 1
-        print(low_value, middle_value, high_value)
+        middle_value = (low_value+high_value)//2
         if required_item == ordered_list[middle_value]:
             return (middle_value, step)
         if required_item > ordered_list[middle_value]:
