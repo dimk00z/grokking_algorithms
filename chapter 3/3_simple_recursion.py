@@ -1,3 +1,10 @@
+
+def create_ordered_list(start: int = 0,
+                        step: int = 1,
+                        end: int = 100):
+    return [number+1 for number in range(start, end, step)]
+
+
 def infinity_countdown(value):
     print(value)
     infinity_countdown(value-1)
@@ -27,7 +34,7 @@ def main():
     normal_countdown(5)
     print(simple_factorial(39))
     print(reverse_string('cat'))
-    print(recursive_sum([1, 2, 3, 4, 5, 6]))
+    print(recursive_sum(create_ordered_list(end=10)))
 
 
 if __name__ == '__main__':
