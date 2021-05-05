@@ -1,6 +1,20 @@
 from utils import create_ordered_list
 
 
+def recursive_elements_count(required_list):
+    return 1 if len(required_list) == 1 else 1+recursive_elements_count(required_list[1:])
+
+
+def find_max(required_list):
+
+    if len(required_list) == 1:
+        return required_list[0]
+    if required_list[0] > required_list[1]:
+        required_list[1] = required_list[0]
+
+    return find_max(required_list[1:])
+
+
 def binary_search(ordered_list, required_item):
 
     def binary_search_with_recursion(
@@ -31,6 +45,9 @@ def binary_search(ordered_list, required_item):
 def main():
     ordered_list = create_ordered_list(end=10)
     binary_search(ordered_list=ordered_list, required_item=10)
+    print(recursive_elements_count(ordered_list), len(ordered_list))
+    print(find_max(ordered_list))
+    print(find_max([20, 3, 400, 5, 900]))
 
 
 if __name__ == '__main__':
