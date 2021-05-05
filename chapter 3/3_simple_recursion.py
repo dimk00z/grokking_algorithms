@@ -19,13 +19,13 @@ def reverse_string(string):
 
 def recursive_sum(array):
     print(array)
-    return array[0] if len(array) == 1 else array[0] + recursive_sum(array[1:])
+    return 0 if not array else array[0] + recursive_sum(array[1:])
 
 
 def main():
     # infinity_countdown(10)
     normal_countdown(5)
-    print(simple_factorial(3))
+    print(simple_factorial(39))
     print(reverse_string('cat'))
     print(recursive_sum([1, 2, 3, 4, 5, 6]))
 
