@@ -1,10 +1,6 @@
 from collections import deque
 
 
-def search():
-    search_queue = deque()
-
-
 def person_is_seller(name):
     return name[-1] == 'm'
 
@@ -33,15 +29,15 @@ def breadth_first_search(graph, func):
 
 
 def main():
-    graph = {}
-    graph['you'] = ['alice', 'bob', 'claire']
-    graph['bob'] = ['anuj', 'peggy']
-    graph['alice'] = ['peggy']
-    graph['claire'] = ['thom', 'jonny']
-    graph['jonny'] = []
-    graph['thom'] = []
-    graph['peggy'] = []
-    graph['anuj'] = []
+    graph = {
+        'you': ['alice', 'bob', 'claire'],
+        'bob': ['anuj', 'peggy'],
+        'alice': ['peggy'],
+        'claire': ['thom', 'jonny'],
+        'jonny': [],
+        'thom': [],
+        'peggy': [],
+        'anuj': [], }
     print(breadth_first_search(graph, person_is_seller))
 
 
