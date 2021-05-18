@@ -4,7 +4,9 @@ from copy import copy
 INFINITY = float('inf')
 
 
-def deijtra_rearch(graph, start, finish):
+def dijkstras_search(graph, start, finish):
+    if start not in graph or finish not in graph:
+        return 'Strange nodes have been given'
     if start == finish:
         return 'Start and finish must be different nodes'
     pprint(graph)
@@ -76,7 +78,7 @@ def main():
             'd': 7,
         }
     }
-    print(deijtra_rearch(graph, 'a', 'f'))
+    print(dijkstras_search(graph, 'b', 'e'))
 
 
 if __name__ == "__main__":
