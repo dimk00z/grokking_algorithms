@@ -18,20 +18,20 @@ def find_lowest_cost_node(costs, processed):
 @measure
 def main():
 
-    graph = {}
-    graph['start'] = {
-        'a': 6,
-        'b': 2,
+    graph = {
+        'start': {
+            'a': 6,
+            'b': 2,
+        },
+        'a': {
+            'fin': 1,
+        },
+        'b': {
+            'a': 3,
+            'fin': 5,
+        },
+        'fin': {}
     }
-    graph['a'] = {
-        'fin': 1,
-    }
-    graph['b'] = {
-        'a': 3,
-        'fin': 5,
-
-    }
-    graph['fin'] = {}
     costs = {
         'a': 6,
         'b': 2,
