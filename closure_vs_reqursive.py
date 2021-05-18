@@ -55,7 +55,7 @@ def main():
         print(recursive_fib(10000))
     except RecursionError as ex:
         print(ex)
-    print(closure_fib(10000))
+    print(closure_fib(1000))
 
     # factorial
     try:
