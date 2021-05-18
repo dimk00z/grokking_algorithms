@@ -11,17 +11,18 @@ def recursive_fib(n):
 
 
 @measure
-def closure_fib(n, start=(1, 2)):
+def closure_fib(n, start=(0, 1)):
 
     x1, x2 = start
+    result = 0
 
     def get_next_number():
         nonlocal x1, x2
         x3 = x2 + x1
         x1, x2 = x2, x3
         return x3
-    result = step = 1
-    while step < (n-2):
+    step = 1
+    while step < (n):
         result = get_next_number()
         step += 1
     return result
@@ -49,12 +50,19 @@ def closure_factorial(value):
 
 
 def main():
-    print(recursive_fib(20))
-    print(closure_fib(20))
+    # fib
+    try:
+        print(recursive_fib(10000))
+    except RecursionError as ex:
+        print(ex)
+    print(closure_fib(10000))
+
+    # factorial
     try:
         print(simple_recursive_factorial(1000))
     except RecursionError as ex:
         print(ex)
+
     print(closure_factorial(1000))
 
 
