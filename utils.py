@@ -11,6 +11,7 @@ def measure(func):
             return func(*args, **kwargs)
         finally:
             end_ = monotonic() - start
+            print()
             print(
                 f"Total execution time {func.__name__}: {end_:.15f} ms"
             )

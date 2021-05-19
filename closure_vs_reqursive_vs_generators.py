@@ -30,10 +30,12 @@ def closure_fib(n, start=(0, 1)):
 
 @measure
 def fib_with_generators(n):
-    a, b = 0, 1
-    for _ in range(n+1):
-        yield a
-        a, b = b, a+b
+    def fib(n):
+        a, b = 0, 1
+        for _ in range(n+1):
+            yield a
+            a, b = b, a+b
+    return tuple(fib(n))[-1]
 
 
 @measure
@@ -59,29 +61,32 @@ def closure_factorial(value):
 
 @measure
 def factorial_with_generators(value):
-    result = 1
-    for step in range(1, value+1):
-        result *= step
-        yield(result)
+    def factorial(value):
+        result = 1
+        for step in range(1, value+1):
+            result *= step
+            yield(result)
+    return tuple(factorial(value))[-1]
 
 
 def main():
+    value = 10000
     # fib
     try:
-        print(recursive_fib(1000))
+        print(recursive_fib(value))
     except RecursionError as ex:
         print(ex)
-    print(closure_fib(1000))
-    print(tuple(fib_with_generators(1000))[-1])
+    print(closure_fib(value))
+    print(fib_with_generators(value))
 
     # factorial
     try:
-        print(simple_recursive_factorial(1000))
+        print(simple_recursive_factorial(value))
     except RecursionError as ex:
         print(ex)
 
-    print(closure_factorial(100000))
-    print(tuple(factorial_with_generators(100000))[-1])
+    print(closure_factorial(value))
+    print(factorial_with_generators(value))
 
 
 if __name__ == "__main__":
