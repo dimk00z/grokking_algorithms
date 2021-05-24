@@ -77,3 +77,8 @@ def findSum(str1, str2):
     str3 = str3[::-1]
 
     return str3
+
+
+def print_2d_list(array):
+    for row in array:
+        print(' '.join([str(item) for item in row]))
