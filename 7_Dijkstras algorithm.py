@@ -5,6 +5,7 @@ INFINITY = float('inf')
 
 
 def dijkstras_search(graph, start, finish):
+
     if start not in graph or finish not in graph:
         return 'Strange nodes have been given'
     if start == finish:
@@ -39,7 +40,8 @@ def dijkstras_search(graph, start, finish):
             path.append(node)
             break
     shortest_path = ' > '.join(path[::-1])
-    result_string = f'''The shortest path from {start} to {finish}: {shortest_path} and the weight is {costs[finish]}'''
+    result_string = f'''The shortest path from {start} to {finish}: 
+    {shortest_path} and the weight is {costs[finish]}'''
     return result_string
 
 
@@ -78,7 +80,7 @@ def main():
             'd': 7,
         }
     }
-    print(dijkstras_search(graph, 'b', 'e'))
+    print(dijkstras_search(graph, 'a', 'f'))
 
 
 if __name__ == "__main__":
