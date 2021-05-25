@@ -1,3 +1,6 @@
+from utils import print_2d_list
+
+
 def get_area_and_value(stuffdict):
     area = [stuffdict[item][0] for item in stuffdict]
     value = [stuffdict[item][1] for item in stuffdict]
@@ -43,6 +46,24 @@ def get_selected_items_list(area, value, capacity, table, stuffdict):
     return selected_stuff
 
 
+def robot_paths(n: int, m: int) -> int:
+    path_table = [[0 for m in range(m+1)] for n in range(n+1)]
+    print_2d_list(path_table)
+
+    def path(n, m, path_table):
+        if path_table[n][m] != 0:
+            return path_table[n][m]
+        if n < 1 or m < 1:
+            return 0
+        if n == 1 and m == 1:
+            return 1
+        path_table[n][m] = path(n-1, m, path_table) + path(n, m-1, path_table)
+        return path_table[n][m]
+    paths_number = path(n, m, path_table)
+    print_2d_list(path_table)
+    return paths_number
+
+
 def main():
     stuffdict = {'couch_s': (300, 75),
                  'couch_b': (500, 80),
@@ -80,6 +101,7 @@ def main():
     stuff = get_selected_items_list(area, value, capacity, table, stuffdict)
     print(stuff)
 # https://proglib.io/p/python-i-dinamicheskoe-programmirovanie-na-primere-zadachi-o-ryukzake-2020-02-04
+    print(robot_paths(3, 2))
 
 
 if __name__ == '__main__':
