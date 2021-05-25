@@ -82,3 +82,7 @@ def findSum(str1, str2):
 def print_2d_list(array):
     for row in array:
         print(' '.join([str(item) for item in row]))
+
+
+def get_matrix(x, y):
+    return [[0 for y in range(y+1)] for x in range(x+1)]

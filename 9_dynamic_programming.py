@@ -1,4 +1,4 @@
-from utils import print_2d_list
+from utils import print_2d_list, get_matrix
 
 
 def get_area_and_value(stuffdict):
@@ -47,8 +47,7 @@ def get_selected_items_list(area, value, capacity, table, stuffdict):
 
 
 def robot_paths(n: int, m: int) -> int:
-    path_table = [[0 for m in range(m+1)] for n in range(n+1)]
-    print_2d_list(path_table)
+    path_table = get_matrix(n, m)
 
     def path(n, m, path_table):
         if path_table[n][m] != 0:
@@ -101,7 +100,7 @@ def main():
     stuff = get_selected_items_list(area, value, capacity, table, stuffdict)
     print(stuff)
 # https://proglib.io/p/python-i-dinamicheskoe-programmirovanie-na-primere-zadachi-o-ryukzake-2020-02-04
-    print(robot_paths(3, 2))
+    print(robot_paths(3, 7))
 
 
 if __name__ == '__main__':
